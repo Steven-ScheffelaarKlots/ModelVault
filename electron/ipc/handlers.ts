@@ -77,11 +77,11 @@ export function registerIpcHandlers(): void {
     const db = getDatabase();
     
     // Get or create tag
-    let tag = db.prepare('SELECT tag_id FROM tags WHERE tag_name = ?').get(tagName) as any;
+    let tag = db.prepare('SELECT tag_id FROM tags WHERE tag_name = ?').get(tagName) as { tag_id: number } | undefined;
     
     if (!tag) {
       const result = db.prepare('INSERT INTO tags (tag_name) VALUES (?)').run(tagName);
-      tag = { tag_id: result.lastInsertRowid };
+      tag = { tag_id: result.lastInsertRowid as number };
     }
     
     // Link to model

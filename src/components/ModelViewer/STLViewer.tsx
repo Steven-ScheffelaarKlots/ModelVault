@@ -14,6 +14,7 @@ function STLModel({ filePath }: { filePath: string }) {
   
   useEffect(() => {
     let mounted = true;
+    let currentGeometry: THREE.BufferGeometry | null = null;
     
     const loadSTL = async () => {
       try {
@@ -27,7 +28,10 @@ function STLModel({ filePath }: { filePath: string }) {
         geom.center();
         
         if (mounted) {
+          currentGeometry = geom;
           setGeometry(geom);
+        } else {
+          geom.dispose();
         }
       } catch (error) {
         console.error('Error loading STL:', error);
@@ -38,8 +42,8 @@ function STLModel({ filePath }: { filePath: string }) {
     
     return () => {
       mounted = false;
-      if (geometry) {
-        geometry.dispose();
+      if (currentGeometry) {
+        currentGeometry.dispose();
       }
     };
   }, [filePath]);

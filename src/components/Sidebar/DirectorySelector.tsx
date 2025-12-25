@@ -1,5 +1,3 @@
-
-
 interface DirectorySelectorProps {
   onScan: () => void;
   loading: boolean;

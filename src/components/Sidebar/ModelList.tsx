@@ -1,4 +1,3 @@
-
 import type { ModelWithFiles } from '../../types/models';
 
 interface ModelListProps {
