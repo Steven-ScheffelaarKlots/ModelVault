@@ -1,5 +1,5 @@
 import { getDatabase } from './db.js';
-import type { Model, ModelFile, ModelWithFiles, Metadata, Tag } from '../../src/types/models';
+import type { Model, ModelFile, ModelWithFiles, Metadata, Tag } from '../types/models.js';
 
 export class ModelQueries {
   static getAllModels(): ModelWithFiles[] {

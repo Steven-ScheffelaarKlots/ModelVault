@@ -1,4 +1,4 @@
-import React from 'react';
+
 import type { ModelWithFiles } from '../../types/models';
 
 interface ModelListProps {

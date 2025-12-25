@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Grid } from '@react-three/drei';
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
@@ -22,7 +22,7 @@ function STLModel({ filePath }: { filePath: string }) {
         const arrayBuffer = buffer.buffer.slice(
           buffer.byteOffset,
           buffer.byteOffset + buffer.byteLength
-        );
+        ) as ArrayBuffer;
         const geom = loader.parse(arrayBuffer);
         geom.center();
         

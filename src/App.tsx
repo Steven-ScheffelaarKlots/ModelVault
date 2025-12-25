@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import MainLayout from './components/Layout/MainLayout';
 import DirectorySelector from './components/Sidebar/DirectorySelector';
 import ModelList from './components/Sidebar/ModelList';
